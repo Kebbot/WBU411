@@ -1,3 +1,22 @@
 ﻿  WBU411.cpp
-C:\Users\Admin\source\repos\WBU411\WBU411\WBU411.cpp(33,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-  WBU411.vcxproj -> C:\Users\Admin\source\repos\WBU411\x64\Debug\WBU411.exe
+C:\Users\Admin\Documents\GitHub\WBU411\WBU411\WBU411.cpp(76,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\Admin\Documents\GitHub\WBU411\WBU411\WBU411.cpp(68,14): warning C4244: return: преобразование "K" в "T", возможна потеря данных
+C:\Users\Admin\Documents\GitHub\WBU411\WBU411\WBU411.cpp(68,14): warning C4244:         with
+C:\Users\Admin\Documents\GitHub\WBU411\WBU411\WBU411.cpp(68,14): warning C4244:         [
+C:\Users\Admin\Documents\GitHub\WBU411\WBU411\WBU411.cpp(68,14): warning C4244:             K=double
+C:\Users\Admin\Documents\GitHub\WBU411\WBU411\WBU411.cpp(68,14): warning C4244:         ]
+C:\Users\Admin\Documents\GitHub\WBU411\WBU411\WBU411.cpp(68,14): warning C4244:         and
+C:\Users\Admin\Documents\GitHub\WBU411\WBU411\WBU411.cpp(68,14): warning C4244:         [
+C:\Users\Admin\Documents\GitHub\WBU411\WBU411\WBU411.cpp(68,14): warning C4244:             T=int
+C:\Users\Admin\Documents\GitHub\WBU411\WBU411\WBU411.cpp(68,14): warning C4244:         ]
+      C:\Users\Admin\Documents\GitHub\WBU411\WBU411\WBU411.cpp(68,14):
+      контекст создания экземпляра шаблона (сначала самый старый)
+          C:\Users\Admin\Documents\GitHub\WBU411\WBU411\WBU411.cpp(80,13):
+          выполняется компиляция ссылки на экземпляр шаблон функции "T sum2<int,double>(T,K)"
+          with
+          [
+              T=int,
+              K=double
+          ]
+  
+  WBU411.vcxproj -> C:\Users\Admin\Documents\GitHub\WBU411\x64\Debug\WBU411.exe
