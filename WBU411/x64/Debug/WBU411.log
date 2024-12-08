@@ -1,0 +1,3 @@
+﻿  WBU411.cpp
+C:\Users\Admin\source\repos\WBU411\WBU411\WBU411.cpp(33,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  WBU411.vcxproj -> C:\Users\Admin\source\repos\WBU411\x64\Debug\WBU411.exe
