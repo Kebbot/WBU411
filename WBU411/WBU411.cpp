@@ -64,6 +64,127 @@ double sum(double a, int b)
 //Шаблон функций
 template <typename T, typename K> T sum2(T N, K X);
 
+int LineSearch(int array[], int size, int key)
+{
+    for (int i = 0; i < size; i++)
+    {
+        if (array[i] == key)
+            return i;
+    }
+    return -1;
+}
+
+template <class T>
+void selectSort(T arr[], int size)
+{
+    int i, j, k; //создаем отдельно для сохранения результатов во вне цикла
+    T tmp; //временная переменная
+    for (i = 0; i < size; i++)
+    {
+        k = i; // стартовое значение индекса
+        tmp = arr[i]; //стартовое значение
+        for ( j = i+1; j < size; j++)
+        {
+            if (arr[j] < tmp)
+            {
+                k = j; //индекс наименьшего числа
+                tmp = arr[j]; // само наименьшее значение
+            }
+        }
+        if (k != i) //если да - меняем местами
+        {
+            arr[k] = arr[i];
+            arr[i] = tmp;
+        }
+    }
+}
+
+template <class T>
+void bubbleSort(T arr[], int size)
+{
+    int i, j, k; //создаем отдельно для сохранения результатов во вне цикла
+    T tmp; //временная переменная
+    for (i = 0; i < size; i++)
+    {
+        for ( j = size-1; j > i; j--)
+        {
+            if (arr[j - 1] > arr[j])
+            {
+                tmp = arr[j - 1];
+                arr[j - 1] = arr[j];
+                arr[j] = tmp;
+            }
+        }
+    }
+}
+
+template <class T>
+void insertSort(T arr[], int size)
+{
+    T tmp;
+    int i, j;
+    for (i = 0; i < size; i++)
+    {
+        tmp = arr[i];
+        for (j = i - 1; j >= 0 && arr[j] > tmp; j--)
+            arr[j + 1] = arr[j];
+        arr[j + 1] = tmp;
+    }
+}
+
+long int Fact(long int N)
+{
+    if (N < 1) return 0;
+    else if (N == 1) return 1;
+    else return N * Fact(N - 1);
+}
+long int Fact2(long int N)
+{
+    long int F = 1;
+    for (int i = 2; i <= N; i++)
+    {
+        F *= i;
+    }
+    return F;
+}
+
+int binarySreatch(int a[], int Lb, int Rb, int key)
+{
+    int M; //значение середины
+    while (1)
+    {
+        M = (Lb + Rb) / 2; //вычисление середины массива
+        if (key < a[M])//если ключ меньше середины
+            Rb = M - 1; // правую сторону меняем на (середина -1)
+        else if (key > a[M])//если ключ больше середины
+            Lb = M + 1;// левую сторону меняем на (середина +1)
+        else
+            return M; //если key == середина
+        if (Lb > Rb)
+            return -1;
+    }
+}
+
+template <class T>
+void quickSort(T a[], long N)
+{
+    long i = 0, j = N-1;
+    T tmp, p;
+    p = a[N / 2]; //центральный элемент
+    do {
+        while (a[i] < p)i++;
+        while (a[j] > p) j--;
+        if (i <= j) {
+            tmp = a[i];
+            a[i] = a[j];
+            a[j] = tmp;
+            i++; j--;
+        }
+    } while (i <= j);
+    if (j > 0)quickSort(a, j+1);
+    if (N > i) quickSort(a + i, N - i);
+}
+
 
 int main() 
 {
@@ -71,29 +192,27 @@ int main()
     SetConsoleCP(1251); 
     setlocale(LC_ALL, "Rus");
     srand(time(NULL));
-
-
-    /*const int size = 10;
-    int arr[size];
-    Add(arr, size);
-    double arr2[size]
-    {
-        35.5,9.9,53.3,76.6,55.4,
-        43.9,56.7,100.1,99,9
-    };
-    PrintMS(arr, size);
-    cout << MaxValMAss(arr, size) << endl;
-    PrintMS(arr2, size);
-    cout << MaxValMAss(arr2, size) << endl;*/
     
+   
 
-    //int y;
-    //int t = 10;
-    //y = SQR(t + 8) - CUBE(t - 8);
-    ////((t + 8) * (t + 8)) - (((t - 8) * (t - 8)) * (t - 8))
-    //cout << sqrt(ABS(y));
+   /* const int size = 11;
+    int arr[size];
+    int key, ind;
+    for(int i = 0; i < size; i++)
+    {
+        arr[i] = 1 + rand() % (100 - 1);
+        cout << arr[i] << ' ';
+    }cout << endl << endl;
+    quickSort(arr, size);
+    for (int i = 0; i < size; i++)
+    {
+        cout << arr[i] << ' ';
+    }cout << endl << endl;*/
+   /* cout << "Введите искомое число: ";
+    cin >> key;
+    ind = binarySreatch(arr, 0, size, key);
+    cout << "index - " << ind;*/
     return 0;
-    //след тема = поиск и сортировки
 }
 //Шаблон функций
 template <typename T, typename K> T sum2(T N, K X)
