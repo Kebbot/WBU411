@@ -4,38 +4,30 @@
 #include <cmath>
 using namespace std;
 
-// Перечисляемый тип
-enum Seasons {
-    WINTER,SPRING, SUMMER,AUTUMN
-};
-enum Months {
-    JAN=1,FEB,MAR,APR,MAY,
-    JUN,JUL,AUG,SEP,OCT,NOV,DEC
-};
-enum Signal {
-    OFF,ON
+struct date
+{
+    int day; // День
+    int month; // Месяц
+    int year; // Год
+    int weekday; // День Недели
+    char mon_name[15]; // Название месяца
+} OtherBirthday, x,ptr; // Можно создать глобальные объекты структуры (Необязательно).
+
+struct person
+{
+    char name[55];
+    date Birthday;
 };
 
-// Указатели на функции - тема
-int myFunc()
+struct Test // 40 байт(а)
 {
-    return 10;
-}
-char* pool(char* str, int size)
-{
-    return str;
-}
-
-// Ключевое слово auto 
-auto minFunc()
-{
-    auto a = 20;
-    auto b = 10;
-    if (a < b)
-        return a + 10.5;
-    else
-        return b + 10.5;
-}
+    char c;     // 1 байт(а)
+    int i;      // 4 байт(а)
+    double d;   // 8 байт(а)
+    double p;   // 8 байт(а)
+    int f;      // 4 байт(а)
+    double q;   // 8 байт(а)
+}; // итого: 33 байт(а)
 
 int main() 
 {
@@ -44,32 +36,47 @@ int main()
     setlocale(LC_ALL, "Rus");
     srand(time(NULL));
     
-    //cout << myFunc << endl; //адрес фунции 
-    //cout << &myFunc << endl;  //другой способ - адрес фунции
+    /*date myBirthday = { 20,7,1981,1,"July" };
+    cout << "__________MY BIRTHDAY__________\n\n";
+    cout << "DAY: " << myBirthday.day << endl;
+    cout << "MONTH: " << myBirthday.month << endl;
+    cout << "YEAR: " << myBirthday.year << endl;
+    cout << "WEEKDAY: " << myBirthday.weekday << endl;
+    cout << "MONTH NAME: " << myBirthday.mon_name << endl;
 
-    ////Указатели на функции
-    //int (*funcPtr)(); //создание указателя
-    //funcPtr = &myFunc; //инициализация
+    date Birthday;
+    cout << "__________YOUR BIRTHDAY__________\n\n";
+    cout << "DAY ?: ";
+    cin >> Birthday.day;
+    cout << "MONTH ?: ";
+    cin >> Birthday.month;
+    cout << "YEAR ?: ";
+    cin >> Birthday.year;
+    cout << "WEEKDAY ?: ";
+    cin >> Birthday.weekday;
+    cout << "MONTH NAME ?: ";
+    cin.getline(Birthday.mon_name, 15);
+    cin.getline(Birthday.mon_name, 15);
 
-    //char* (*funcPtr2)(char*, int); //создание указателя
-    //funcPtr2 = pool;  //инициализация
+    cout << "\n\n__________BIRTHDAY__________\n\n";
+    cout << "DAY: " << Birthday.day << endl;
+    cout << "MONTH: " << Birthday.month << endl;
+    cout << "YEAR: " << Birthday.year << endl;
+    cout << "WEEKDAY: " << Birthday.weekday << endl;
+    cout << "MONTH NAME: " << Birthday.mon_name << endl << endl;*/
 
-    // Ключевое слово auto 
-    auto num = 10; // целочисленный тип
-    auto num2 = 4.5; // вещественный тип
-    auto sum = 4.5 + 10; // выражение
-    auto ptr = &sum; // указатель
-    auto minf = minFunc();
-    cout << minf;
+    person pers = { "Нуптуллин Арман",{5,5,2005,5,"Май"}};
+    //cout << pers.Birthday.mon_name << endl;
 
-    // Ключевое слово decltype 
-    int x = 1.2;
-    decltype(x) j;
-   
-    int y = 10;
-    int& r = y;
-    //decltype(r) xy;
-
+   /* cout << sizeof(int) << endl;
+    cout << sizeof(double) << endl;
+    cout << sizeof(float) << endl;
+    cout << sizeof(bool) << endl;
+    cout << sizeof(char) << endl;
+    cout << sizeof(pers) << endl;
+    cout << sizeof(person) << endl;
+    cout << sizeof(date) << endl;*/
+    cout << sizeof(Test) << endl;
    
     return 0;
 }
